@@ -9,13 +9,18 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/t0ltespr/overlay
 
 LOCAL_PATH := device/samsung/t0ltespr
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+	LOCAL_KERNEL := $(LOCAL_PATH)/kernAl
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+    $(LOCAL_KERNEL):kernAl
+
+PRODUCT_COPY_FILES += \
+        device/samsung/t0lteatt/modules/exfat_core.ko:lib/modules/exfat_core.ko
+PRODUCT_COPY_FILES += \
+        device/samsung/t0lteatt/modules/exfat_fs.ko:lib/modules/exfat_fs.ko
 
 #$(call inherit-product, build/target/product/full.mk)
 
